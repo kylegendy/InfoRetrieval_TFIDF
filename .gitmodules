@@ -1,0 +1,9 @@
+[submodule "module/RadixTrie"]
+	path = module/RadixTrie
+	url = https://github.com/kylegendy/RadixTrie.git
+[submodule "module/StringValidator"]
+	path = module/StringValidator
+	url = https://github.com/kylegendy/StringValidator.git
+[submodule "module/DeAccenter"]
+	path = module/DeAccenter
+	url = https://github.com/kylegendy/DeAccenter.git

@@ -2,28 +2,29 @@
 // Created by Kyle Gendreau on 7/17/21.
 //
 
-#ifndef TF_IDF_IR_TFIDF_H
-#define TF_IDF_IR_TFIDF_H
+#ifndef INFORETRIEVAL_TFIDF_InfoRetriever_H
+#define INFORETRIEVAL_TFIDF_InfoRetriever_H
 
 #include "Biblio.h"
+#include "Analyzer_txt.h"
 
-class IR_TFIDF {
+class InfoRetriever {
 public:
 
-    using Cont = std::list;
+    using Cont = std::list<Citation>;
 
     // def ctor
-    explicit IR_TFIDF();
+    explicit InfoRetriever();
 
     // copy ctor
-    explicit IR_TFIDF(const IR_TFIDF& rhs);
+    explicit InfoRetriever(const InfoRetriever& rhs);
 
     // dtor
-    ~IR_TFIDF();
+    ~InfoRetriever() = default;
 
     // assignment op
-    IR_TFIDF& operator=(const IR_TFIDF& rhs);
-    IR_TFIDF& operator=(const IR_TFIDF&& rhs);
+    InfoRetriever& operator=(const InfoRetriever& rhs);
+    InfoRetriever& operator=(const InfoRetriever&& rhs);
 
 //////////////////////////////////////////////////////
 //// CAPACITY
@@ -46,15 +47,15 @@ public:
 
     void eraseTerm(std::string path); // document path
 
-    void swap(IR_TFIDF& rhs);
+    void swap(InfoRetriever& rhs);
 
 //////////////////////////////////////////////////////
 //// LOOKUPS
 
     bool contains(std::string path); // document path
 
-    // todo an ordered container of sources along with their calculated values given the term
-    Cont<std::pair<Source&,doub find(std::string term);
+    // get a an ordered container of sources along with their values
+    Cont find(std::string term);
 
     // todo an ordered container of sources along with their calculated values given the query
     ... query(std::string query);
@@ -85,4 +86,4 @@ private:
 
 };
 
-#endif //TF_IDF_IR_TFIDF_H
+#endif //INFORETRIEVAL_TFIDF_InfoRetriever_H

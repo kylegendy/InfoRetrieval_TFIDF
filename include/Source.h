@@ -2,23 +2,24 @@
 // Created by Kyle Gendreau on 7/17/21.
 //
 
-#ifndef TF_IDF_SOURCE_H
-#define TF_IDF_SOURCE_H
+#ifndef INFORETRIEVAL_TFIDF_SOURCE_H
+#define INFORETRIEVAL_TFIDF_SOURCE_H
 
 #include <optional>
-#include <time>
+#include <time.h>
+#include <string>
 
 class Source {
 public:
 
     // def ctor
-    explicit Source();
+    explicit Source(std::string filePath, std::string title = "", std::string author = "", std::tm date = std::tm(), uint32_t termCnt = 0, uint32_t uniqueTermCnt = 0);
 
     // copy ctor
     explicit Source(const Source& rhs);
 
     // dtor
-    ~Source();
+    ~Source() = default;
 
     // assignment op
     Source& operator=(const Source& rhs);
@@ -37,10 +38,10 @@ public:
     std::string path_;
 
     // the total number of terms
-    uint32_t termSize_;
+    uint32_t termCnt_;
 
     // the total number of unique terms
-    uint32_t uniqueTermSize_;
+    uint32_t uniqueTermCnt_;
 
     // the title of the doc
     std::optional<std::string> title_;
@@ -53,4 +54,4 @@ public:
 
 };
 
-#endif //TF_IDF_SOURCE_H
+#endif //INFORETRIEVAL_TFIDF_SOURCE_H

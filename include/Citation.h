@@ -2,8 +2,8 @@
 // Created by Kyle Gendreau on 7/25/21.
 //
 
-#ifndef TF_IDF_CITATION_H
-#define TF_IDF_CITATION_H
+#ifndef INFORETRIEVAL_TFIDF_CITATION_H
+#define INFORETRIEVAL_TFIDF_CITATION_H
 
 #include "Source.h"
 
@@ -13,6 +13,9 @@ public:
     // def ctor
     Citation(Source* source = nullptr, uint32_t frequency = 0);
 
+    // alt ctor
+    Citation(Source source, uint32_t frequency = 0);
+
     // dtor
     ~Citation() = default;
 
@@ -20,12 +23,14 @@ public:
 
     uint32_t getFrequency(); // returns the frequency of word in source
 
+    void incFreq(double inc);
+
 private:
 
-    Source* src;
+    Source* src_;
 
-    uint32_t frequency;
+    uint32_t freq_;
 
 };
 
-#endif //TF_IDF_CITATION_H
+#endif //INFORETRIEVAL_TFIDF_CITATION_H

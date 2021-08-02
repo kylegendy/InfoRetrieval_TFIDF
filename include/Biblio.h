@@ -2,8 +2,8 @@
 // Created by Kyle Gendreau on 7/17/21.
 //
 
-#ifndef TF_IDF_BIBLIO_H
-#define TF_IDF_BIBLIO_H
+#ifndef INFORETRIEVAL_TFIDF_BIBLIO_H
+#define INFORETRIEVAL_TFIDF_BIBLIO_H
 
 #include "Source.h"
 
@@ -37,11 +37,11 @@ public:
 
     void clear() noexcept;
 
-    void insert(Source& doc);
-    void insert(Source&& doc);
+    void insert(Source& src);
+    void insert(Source&& src);
 
-    void erase(Source& doc);
-    void erase(Source&& doc);
+    void erase(Source& src);
+    void erase(Source&& src);
 
     void swap(Biblio& rhs);
 
@@ -50,11 +50,11 @@ public:
 //////////////////////////////////////////////////////
 //// LOOKUPS
 
-    bool contains(Source& doc) const;
-    bool contains(Source&& doc) const;
+    bool contains(Source& src) const;
+    bool contains(Source&& src) const;
 
-    T::iterator find(Source& doc);
-    T::iterator find(Source&& doc);
+    T::iterator find(Source& src);
+    T::iterator find(Source&& src);
 
 //////////////////////////////////////////////////////
 //// ITERATORS
@@ -71,4 +71,4 @@ private:
     T cont_;
 };
 
-#endif //TF_IDF_BIBLIO_H
+#endif //INFORETRIEVAL_TFIDF_BIBLIO_H
